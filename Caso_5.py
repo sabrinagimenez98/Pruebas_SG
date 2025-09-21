@@ -111,46 +111,34 @@ while opc!=8:
                 print("1.Vender porcion")
                 print("2.Devolver porcion")
                 accion=input("Ingrese la opcion elegida (1 o 2 ): ")
-            
-                if not platos:
-                    print("No hay platos ingresados.")
-                elif len(platos)!=len(porciones):
-                    print("Primero debe ingresar la cantidad de porciones de cada plato-")
-                else:
-                    plato=input("Ingrese plato: ").title()
-                    cant=input("Cantidad de platos para accionar: ")
-                    while not cant.isdigit(): #Validacion opcion numerica
-                        cant=input("Cantidad invalida. Intente de nuevo: ")
-                        continue
-                    cant=int(cant)
+                plato=input("Ingrese plato: ").title()
+                
+                if plato in platos:
+                    cant=int(input("Cantidad de platos para accionar: "))
+                    
+                    indi=platos.index(plato)
 
-                    if plato in platos:
-                        indi=platos.index(plato)
-                        if accion==1: #Vender -1
-                            if cant<=0:
+                    if accion=="1": #Vender -1
+                        if cant<=0:
                                 print("Debe vender almenos una porcion.")
-                            elif cant<porciones[indi]:
+                        elif cant>porciones[indi]:
                                 print("Cantidad de porciones insuficientes para la venta.")
-                            else:
-                                porciones[indi] -= cant
-                                print(f"Venta realizada. Quedan {porciones[indi]} porciones de {platos[indi]}")
-                        elif accion==2: #Devolver +1
+                        else:
+                            porciones[indi] -= cant
+                            print(f"Venta realizada. Quedan {porciones[indi]} porciones de {platos[indi]}")
+                    elif accion=="2": #Devolver +1
                             if cant<=0:
                                 print("Debe devolver almenos una porcion.")
                             else:
                                 porciones[indi] += cant
                                 print(f"Devolucion realizada. Quedan {porciones[indi]} porciones de {platos[indi]}")
                     else:
-                        print("Plato invalido o no encontrado")
+                        print("Opcion invalida")
+                else:
+                    print("Plato invalido o no encontrado")
         case 8: #Salir
             break
         case _: #Opcion invalida
             print("\n Opcion invalida. Intente de nuevo.")
 
 print("\n Gracias por utilizar el sistema del RESTAURANTE.")
-    
-    
-
-    
-
-
