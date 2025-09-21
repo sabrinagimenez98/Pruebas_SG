@@ -137,8 +137,8 @@ while opc!=8:
                 else:
                     print("Plato invalido o no encontrado")
         case 8: #Salir
+            print("\n Gracias por utilizar el sistema del RESTAURANTE.")
             break
         case _: #Opcion invalida
             print("\n Opcion invalida. Intente de nuevo.")
 
-print("\n Gracias por utilizar el sistema del RESTAURANTE.")
