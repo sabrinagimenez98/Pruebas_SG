@@ -88,7 +88,7 @@ while opc!=8:
                 while not entrada.isdigit():
                     entrada=input(f"\nCantidad de entradas invalida. Cantidad de entradas de {evento}: ")
                     continue
-                entradas.append(entrada)
+                entradas.append(int(entrada))
         case 7: #7.Actualizar entradas(venta/devolucion)
             if not eventos:
                 print("\nNoy eventos para actualizar.")
